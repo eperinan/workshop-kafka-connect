@@ -22,7 +22,6 @@ services:
       - ./full-stack/zoo1/data:/data
       - ./full-stack/zoo1/datalog:/datalog
 
-
   kafka1:
     image: confluentinc/cp-kafka:5.0.0
     hostname: kafka1
@@ -124,6 +123,7 @@ services:
       CONNECT_PLUGIN_PATH: "/usr/share/java,/etc/kafka-connect/jars"
     volumes:
       - ./jars:/etc/kafka-connect/jars/
+      - ~/.aws/credentials:/root/.aws/credentials
     depends_on:
       - zoo1
       - mysql
